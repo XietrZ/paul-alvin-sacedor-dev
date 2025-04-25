@@ -9,15 +9,15 @@ const Hero = () => {
       <div className="max-w-4xl mx-auto text-center">
         <div className="mb-8 flex justify-center">
           <Avatar className="h-32 w-32 border-4 border-primary">
-            <AvatarImage src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952" alt="Profile Picture" />
-            <AvatarFallback>ME</AvatarFallback>
+            <AvatarImage src="/lovable-uploads/86ead56a-03b5-4979-97eb-ff9bba5b9bef.png" alt="Paul Alvin V. Sacedor" />
+            <AvatarFallback>PVS</AvatarFallback>
           </Avatar>
         </div>
         <h1 className="text-4xl md:text-6xl font-bold mb-6 fade-in">
-          Full Stack Developer
+          Paul Alvin V. Sacedor
         </h1>
         <p className="text-xl text-muted-foreground mb-8 fade-in">
-          I craft robust and scalable applications with modern technologies.
+          Full Stack Developer crafting robust and scalable applications with modern technologies.
           Passionate about creating elegant solutions to complex problems.
         </p>
         <div className="flex justify-center gap-4 fade-in">
