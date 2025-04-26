@@ -1,6 +1,10 @@
-
-import { ExternalLink } from 'lucide-react';
-import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { ExternalLink } from "lucide-react";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
 const Publications = () => {
@@ -12,9 +16,16 @@ const Publications = () => {
           <Card className="hover:shadow-lg transition-shadow">
             <CardHeader>
               <CardTitle className="flex items-start justify-between">
-                <span>Deep Learning-Based Jeepney Stop Detection System using Convolution Neural Networks</span>
+                <span>
+                  Deep Learning-Based Jeepney Stop Detection System using
+                  Convolution Neural Networks
+                </span>
                 <Button variant="ghost" size="icon" asChild>
-                  <a href="https://ieeexplore.ieee.org/document/8343169" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href="https://ieeexplore.ieee.org/document/8343169"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <ExternalLink className="h-5 w-5" />
                   </a>
                 </Button>
