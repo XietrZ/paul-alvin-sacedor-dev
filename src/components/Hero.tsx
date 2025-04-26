@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail, ExternalLink, Facebook } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
@@ -27,14 +27,35 @@ const Hero = () => {
           complex problems.
         </p>
         <div className="flex justify-center gap-4 fade-in">
-          <Button variant="outline" size="icon">
-            <Github className="h-5 w-5" />
+          <Button variant="outline" size="icon" asChild>
+            <a
+              href="https://github.com/XietrZ"
+              target="_blank"
+              // rel="noopener noreferrer"
+            >
+              <Github className="h-5 w-5"></Github>
+            </a>
           </Button>
-          <Button variant="outline" size="icon">
-            <Linkedin className="h-5 w-5" />
+          <Button variant="outline" size="icon" asChild>
+            <a
+              href="https://www.linkedin.com/in/paul-alvin-sacedor/"
+              target="_blank"
+              // rel="noopener noreferrer"
+            >
+              <Linkedin className="h-5 w-5" />
+            </a>
           </Button>
           <Button variant="outline" size="icon">
             <Mail className="h-5 w-5" />
+          </Button>
+          <Button variant="outline" size="icon" asChild>
+            <a
+              href="https://www.facebook.com/paul.sacedor/"
+              target="_blank"
+              // rel="noopener noreferrer"
+            >
+              <Facebook className="h-5 w-5"></Facebook>
+            </a>
           </Button>
         </div>
       </div>

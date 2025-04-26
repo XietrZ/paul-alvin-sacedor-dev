@@ -8,7 +8,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Linkedin, Github } from "lucide-react";
+import { Mail, Linkedin, Github, Facebook } from "lucide-react";
 import { toast } from "@/components/ui/sonner";
 
 const Contact = () => {
@@ -57,14 +57,35 @@ const Contact = () => {
               </Button>
             </form>
             <div className="mt-8 flex justify-center gap-4">
+              <Button variant="outline" size="icon" asChild>
+                <a
+                  href="https://github.com/XietrZ"
+                  target="_blank"
+                  // rel="noopener noreferrer"
+                >
+                  <Github className="h-5 w-5"></Github>
+                </a>
+              </Button>
+              <Button variant="outline" size="icon" asChild>
+                <a
+                  href="https://www.linkedin.com/in/paul-alvin-sacedor/"
+                  target="_blank"
+                  // rel="noopener noreferrer"
+                >
+                  <Linkedin className="h-5 w-5" />
+                </a>
+              </Button>
               <Button variant="outline" size="icon">
                 <Mail className="h-5 w-5" />
               </Button>
-              <Button variant="outline" size="icon">
-                <Linkedin className="h-5 w-5" />
-              </Button>
-              <Button variant="outline" size="icon">
-                <Github className="h-5 w-5" />
+              <Button variant="outline" size="icon" asChild>
+                <a
+                  href="https://www.facebook.com/paul.sacedor/"
+                  target="_blank"
+                  // rel="noopener noreferrer"
+                >
+                  <Facebook className="h-5 w-5"></Facebook>
+                </a>
               </Button>
             </div>
           </CardContent>
