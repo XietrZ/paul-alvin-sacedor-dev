@@ -52,7 +52,9 @@ const Contact = () => {
                 className="min-h-[150px]"
                 required
               />
-              <Button className="w-full">Send Message</Button>
+              <Button className="w-full" type="submit">
+                Send Message
+              </Button>
             </form>
             <div className="mt-8 flex justify-center gap-4">
               <Button variant="outline" size="icon">
