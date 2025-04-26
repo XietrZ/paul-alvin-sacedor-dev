@@ -8,7 +8,7 @@ const Hero = () => {
     <section id="about" className="min-h-screen flex items-center justify-center section-padding pt-24">
       <div className="max-w-4xl mx-auto text-center">
         <div className="mb-8 flex justify-center">
-          <Avatar className="h-32 w-32 border-4 border-primary">
+          <Avatar className="h-48 w-48 border-4 border-primary">
             <AvatarImage src="/lovable-uploads/86ead56a-03b5-4979-97eb-ff9bba5b9bef.png" alt="Paul Alvin V. Sacedor" />
             <AvatarFallback>PVS</AvatarFallback>
           </Avatar>
