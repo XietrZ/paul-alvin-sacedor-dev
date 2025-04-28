@@ -56,10 +56,11 @@ const Hero = () => {
 
         {/* Right Content */}
         <div className="flex justify-center md:justify-end animate-fade-in [animation-delay:200ms]">
-          <Avatar className="h-72 w-72 border-4 border-primary shadow-2xl transition-transform duration-300 hover:scale-105">
+          <Avatar className="h-72 w-64 rounded-lg border-4 border-primary shadow-2xl transition-transform duration-300 hover:scale-105">
             <AvatarImage
               src="/lovable-uploads/86ead56a-03b5-4979-97eb-ff9bba5b9bef.png"
               alt="Paul Alvin V. Sacedor"
+              className="object-cover"
             />
             <AvatarFallback>PVS</AvatarFallback>
           </Avatar>
