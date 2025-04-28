@@ -9,7 +9,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Linkedin, Github, Facebook } from "lucide-react";
+import { Mail, Linkedin, WhatsApp, Phone, Facebook } from "lucide-react";
 import { toast } from "@/components/ui/sonner";
 import { useState } from "react";
 
@@ -51,75 +51,111 @@ const Contact = () => {
     }
   };
 
+  const contactInfo = [
+    {
+      icon: <Phone className="h-5 w-5" />,
+      label: "Cell",
+      value: "09777396781",
+      href: "tel:09777396781"
+    },
+    {
+      icon: <Mail className="h-5 w-5" />,
+      label: "Email",
+      value: "pasacedor@gmail.com",
+      href: "mailto:pasacedor@gmail.com"
+    },
+    {
+      icon: <WhatsApp className="h-5 w-5" />,
+      label: "WhatsApp",
+      value: "+63 977 739 6781",
+      href: "https://wa.me/639777396781"
+    },
+    {
+      icon: <Facebook className="h-5 w-5" />,
+      label: "Facebook",
+      value: "paul.sacedor",
+      href: "https://www.facebook.com/paul.sacedor/"
+    },
+    {
+      icon: <Linkedin className="h-5 w-5" />,
+      label: "LinkedIn",
+      value: "paul-alvin-sacedor",
+      href: "https://www.linkedin.com/in/paul-alvin-sacedor/"
+    }
+  ];
+
   return (
-    <section id="contact" className="section-padding bg-secondary/30">
+    <section id="contact" className="section-padding bg-gradient-to-b from-background to-secondary/30">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-12">Get In Touch</h2>
-        <Card>
-          <CardHeader>
-            <CardTitle>Contact Me</CardTitle>
-            <CardDescription>
-              Fill out the form below or reach out through social media.
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <form className="space-y-4" onSubmit={handleSubmit}>
-              <Input placeholder="Your Name" name="name" required />
-              <Input
-                type="email"
-                placeholder="Your Email"
-                name="email"
-                required
-              />
-              <Textarea
-                placeholder="Your Message"
-                name="message"
-                className="min-h-[150px]"
-                required
-              />
-              <Button 
-                className="w-full" 
-                type="submit" 
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? "Sending..." : "Send Message"}
-              </Button>
-            </form>
-            {/* Social Media Links */}
-            <div className="mt-8 flex justify-center gap-4">
-              <Button variant="outline" size="icon" asChild>
+        <h2 className="text-3xl font-bold text-center mb-12 animate-fade-in bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+          Get In Touch
+        </h2>
+        <div className="grid md:grid-cols-2 gap-8">
+          <Card className="animate-fade-in hover:shadow-lg transition-shadow">
+            <CardHeader>
+              <CardTitle>Contact Information</CardTitle>
+              <CardDescription>
+                Feel free to reach out through any of these channels
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              {contactInfo.map((contact, index) => (
                 <a
-                  href="https://github.com/XietrZ"
+                  key={index}
+                  href={contact.href}
                   target="_blank"
-                  // rel="noopener noreferrer"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 p-3 rounded-lg hover:bg-secondary/50 transition-colors"
                 >
-                  <Github className="h-5 w-5"></Github>
+                  <div className="bg-primary/10 p-2 rounded-full">{contact.icon}</div>
+                  <div>
+                    <div className="font-medium">{contact.label}</div>
+                    <div className="text-sm text-muted-foreground">{contact.value}</div>
+                  </div>
                 </a>
-              </Button>
-              <Button variant="outline" size="icon" asChild>
-                <a
-                  href="https://www.linkedin.com/in/paul-alvin-sacedor/"
-                  target="_blank"
-                  // rel="noopener noreferrer"
+              ))}
+            </CardContent>
+          </Card>
+
+          <Card className="animate-fade-in hover:shadow-lg transition-shadow">
+            <CardHeader>
+              <CardTitle>Send a Message</CardTitle>
+              <CardDescription>
+                Fill out the form below and I'll get back to you soon
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <form className="space-y-4" onSubmit={handleSubmit}>
+                <Input 
+                  placeholder="Your Name" 
+                  name="name" 
+                  required 
+                  className="transition-all focus:scale-[1.02]"
+                />
+                <Input
+                  type="email"
+                  placeholder="Your Email"
+                  name="email"
+                  required
+                  className="transition-all focus:scale-[1.02]"
+                />
+                <Textarea
+                  placeholder="Your Message"
+                  name="message"
+                  className="min-h-[150px] transition-all focus:scale-[1.02]"
+                  required
+                />
+                <Button 
+                  className="w-full hover:scale-[1.02] transition-transform" 
+                  type="submit" 
+                  disabled={isSubmitting}
                 >
-                  <Linkedin className="h-5 w-5" />
-                </a>
-              </Button>
-              <Button variant="outline" size="icon">
-                <Mail className="h-5 w-5" />
-              </Button>
-              <Button variant="outline" size="icon" asChild>
-                <a
-                  href="https://www.facebook.com/paul.sacedor/"
-                  target="_blank"
-                  // rel="noopener noreferrer"
-                >
-                  <Facebook className="h-5 w-5"></Facebook>
-                </a>
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
+                  {isSubmitting ? "Sending..." : "Send Message"}
+                </Button>
+              </form>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </section>
   );
