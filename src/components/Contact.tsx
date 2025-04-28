@@ -56,6 +56,7 @@ const Contact = () => {
                 Send Message
               </Button>
             </form>
+            {/* Social Media Links */}
             <div className="mt-8 flex justify-center gap-4">
               <Button variant="outline" size="icon" asChild>
                 <a
