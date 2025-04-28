@@ -2,15 +2,46 @@
 import { Github, Linkedin, Mail, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { useState, useEffect } from "react";
 
 const Hero = () => {
+  const [animate, setAnimate] = useState(false);
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      if (window.location.hash === '#about') {
+        setAnimate(true);
+        setTimeout(() => setAnimate(false), 1000); // Reset after animation
+      }
+    };
+
+    // Check hash on mount and handle URL changes
+    handleHashChange();
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
   return (
     <section
       id="about"
-      className="min-h-screen flex items-center section-padding pt-24 bg-gradient-to-b from-background to-secondary/30"
+      className={`min-h-screen flex items-center section-padding pt-24 bg-gradient-to-b from-background to-secondary/30 ${
+        animate ? 'animate-fade-in' : ''
+      }`}
     >
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        {/* Left Content */}
+        {/* Left Content - Image */}
+        <div className="flex justify-center md:justify-start animate-fade-in [animation-delay:200ms]">
+          <Avatar className="h-[600px] w-[400px] rounded-lg border-4 border-primary shadow-2xl transition-transform duration-300 hover:scale-105">
+            <AvatarImage
+              src="/lovable-uploads/86ead56a-03b5-4979-97eb-ff9bba5b9bef.png"
+              alt="Paul Alvin V. Sacedor"
+              className="object-cover"
+            />
+            <AvatarFallback>PVS</AvatarFallback>
+          </Avatar>
+        </div>
+
+        {/* Right Content - Text */}
         <div className="space-y-8 animate-fade-in">
           <h1 className="text-6xl md:text-7xl font-bold leading-tight bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
             Paul Alvin V. Sacedor
@@ -52,18 +83,6 @@ const Hero = () => {
               </a>
             </Button>
           </div>
-        </div>
-
-        {/* Right Content */}
-        <div className="flex justify-center md:justify-end animate-fade-in [animation-delay:200ms]">
-          <Avatar className="h-72 w-64 rounded-lg border-4 border-primary shadow-2xl transition-transform duration-300 hover:scale-105">
-            <AvatarImage
-              src="/lovable-uploads/86ead56a-03b5-4979-97eb-ff9bba5b9bef.png"
-              alt="Paul Alvin V. Sacedor"
-              className="object-cover"
-            />
-            <AvatarFallback>PVS</AvatarFallback>
-          </Avatar>
         </div>
       </div>
     </section>
