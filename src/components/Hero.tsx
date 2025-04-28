@@ -1,3 +1,4 @@
+
 import { Facebook, Github, Linkedin, Mail, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
@@ -27,10 +28,10 @@ const Hero = () => {
         animate ? "animate-fade-in" : ""
       }`}
     >
-      <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
         {/* Left Content - Image */}
-        <div className="flex justify-center md:justify-start animate-fade-in [animation-delay:200ms]">
-          <Avatar className="h-[450px] w-[460px] rounded-lg border-4 border-primary shadow-2xl transition-transform duration-300 hover:scale-105">
+        <div className="flex justify-center lg:justify-start animate-fade-in [animation-delay:200ms] order-2 lg:order-1">
+          <Avatar className="h-[300px] sm:h-[400px] md:h-[500px] w-[310px] sm:w-[410px] md:w-[510px] rounded-lg border-4 border-primary shadow-2xl transition-transform duration-300 hover:scale-105">
             <AvatarImage
               src="/lovable-uploads/profile_1.PNG"
               alt="Paul Alvin V. Sacedor"
@@ -41,19 +42,19 @@ const Hero = () => {
         </div>
 
         {/* Right Content - Text */}
-        <div className="space-y-8 animate-fade-in">
-          <h1 className="text-6xl md:text-7xl font-bold leading-tight bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+        <div className="space-y-6 lg:space-y-8 order-1 lg:order-2 animate-fade-in text-center lg:text-left">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
             Paul Alvin V. Sacedor
           </h1>
-          <div className="space-y-4">
-            <p className="text-2xl text-primary/80">Full Stack Developer</p>
-            <p className="text-xl text-muted-foreground leading-relaxed">
+          <div className="space-y-3 lg:space-y-4">
+            <p className="text-xl sm:text-2xl text-primary/80">Full Stack Developer</p>
+            <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
               Crafting robust and scalable applications with modern
               technologies. Passionate about creating elegant solutions to
               complex problems.
             </p>
           </div>
-          <div className="flex gap-4 pt-4">
+          <div className="flex gap-4 pt-4 justify-center lg:justify-start">
             <Button
               variant="outline"
               size="icon"
