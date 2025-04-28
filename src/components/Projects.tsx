@@ -15,7 +15,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { projectConstants } from "./constants/ProjectConstants";
+import { projectConstants } from "./constants/ProjectData";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import {
   Carousel,

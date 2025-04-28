@@ -17,8 +17,8 @@ const Publications = () => {
             <CardHeader>
               <CardTitle className="flex items-start justify-between">
                 <span>
-                  Deep Learning-Based Jeepney Stop Detection System using
-                  Convolution Neural Networks
+                  An interest-driven peer-to-peer micro-blogging system over
+                  delay tolerant networks
                 </span>
                 <Button variant="ghost" size="icon" asChild>
                   <a
@@ -31,7 +31,8 @@ const Publications = () => {
                 </Button>
               </CardTitle>
               <CardDescription>
-                Published in IEEE Region 10 Conference (TENCON) 2017
+                Published in IEEE 2018 International Conference on Information
+                Networking (ICOIN)
               </CardDescription>
             </CardHeader>
           </Card>
