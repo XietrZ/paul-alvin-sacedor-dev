@@ -1,5 +1,4 @@
-
-import { Github, Linkedin, Mail, WhatsApp, Phone } from "lucide-react";
+import { Github, Linkedin, Mail, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
@@ -48,8 +47,8 @@ const Hero = () => {
             </a>
           </Button>
           <Button variant="outline" size="icon" asChild className="hover:scale-110 transition-transform">
-            <a href="https://wa.me/639777396781" target="_blank" rel="noopener noreferrer">
-              <WhatsApp className="h-5 w-5" />
+            <a href="tel:09777396781">
+              <Phone className="h-5 w-5" />
             </a>
           </Button>
           <Button variant="outline" size="icon" asChild className="hover:scale-110 transition-transform">

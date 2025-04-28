@@ -1,4 +1,3 @@
-
 import {
   Card,
   CardContent,
@@ -9,7 +8,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Linkedin, WhatsApp, Phone, Facebook } from "lucide-react";
+import { Mail, Linkedin, Phone, Facebook } from "lucide-react";
 import { toast } from "@/components/ui/sonner";
 import { useState } from "react";
 
@@ -63,12 +62,6 @@ const Contact = () => {
       label: "Email",
       value: "pasacedor@gmail.com",
       href: "mailto:pasacedor@gmail.com"
-    },
-    {
-      icon: <WhatsApp className="h-5 w-5" />,
-      label: "WhatsApp",
-      value: "+63 977 739 6781",
-      href: "https://wa.me/639777396781"
     },
     {
       icon: <Facebook className="h-5 w-5" />,
