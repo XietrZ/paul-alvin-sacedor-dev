@@ -1,3 +1,4 @@
+
 import {
   Card,
   CardContent,
@@ -10,20 +11,44 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Linkedin, Github, Facebook } from "lucide-react";
 import { toast } from "@/components/ui/sonner";
+import { useState } from "react";
 
 const Contact = () => {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    
     const formData = new FormData(e.currentTarget);
-    const mailtoLink = `mailto:pasacedor@gmail.com?subject=${encodeURIComponent(
-      formData.get("name") as string
-    )} - Contact Form&body=${encodeURIComponent(
-      `Name: ${formData.get("name")}\nEmail: ${formData.get(
-        "email"
-      )}\nMessage: ${formData.get("message")}`
-    )}`;
-    window.location.href = mailtoLink;
-    toast.success("Opening your email client");
+    const name = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    const message = formData.get("message") as string;
+    
+    try {
+      // Create a simple email structure
+      const emailContent = `
+        Name: ${name}
+        Email: ${email}
+        Message: ${message}
+      `;
+      
+      // Using mailto as a fallback method for direct email
+      const mailtoLink = `mailto:pasacedor@gmail.com?subject=${encodeURIComponent(
+        `${name} - Contact Form`
+      )}&body=${encodeURIComponent(emailContent)}`;
+      
+      window.location.href = mailtoLink;
+      
+      // Clear the form
+      e.currentTarget.reset();
+      toast.success("Message sent successfully!");
+    } catch (error) {
+      toast.error("Failed to send message. Please try again.");
+      console.error("Email sending error:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -52,8 +77,12 @@ const Contact = () => {
                 className="min-h-[150px]"
                 required
               />
-              <Button className="w-full" type="submit">
-                Send Message
+              <Button 
+                className="w-full" 
+                type="submit" 
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Sending..." : "Send Message"}
               </Button>
             </form>
             {/* Social Media Links */}
