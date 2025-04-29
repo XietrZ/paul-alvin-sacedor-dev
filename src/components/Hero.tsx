@@ -1,4 +1,3 @@
-
 import { Facebook, Github, Linkedin, Mail, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
@@ -44,10 +43,12 @@ const Hero = () => {
         {/* Right Content - Text */}
         <div className="space-y-6 lg:space-y-8 order-1 lg:order-2 animate-fade-in text-center lg:text-left">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-            Paul Alvin V. Sacedor
+            Paul Alvin Sacedor
           </h1>
           <div className="space-y-3 lg:space-y-4">
-            <p className="text-xl sm:text-2xl text-primary/80">Full Stack Developer</p>
+            <p className="text-xl sm:text-2xl text-primary/80">
+              Full Stack Developer
+            </p>
             <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
               Crafting robust and scalable applications with modern
               technologies. Passionate about creating elegant solutions to
