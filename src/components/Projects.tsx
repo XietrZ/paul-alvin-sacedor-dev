@@ -1,3 +1,4 @@
+
 import {
   Card,
   CardContent,
@@ -24,6 +25,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { Button } from "@/components/ui/button";
 
 const Projects = () => {
   const projects = projectConstants;
@@ -51,7 +53,9 @@ const Projects = () => {
                         {project.title}
                         <a
                           href={project.github}
-                          className="text-muted-foreground hover:text-primary"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-primary hover:text-primary/80 transition-colors"
                           onClick={(e) => e.stopPropagation()}
                         >
                           <Github className="h-5 w-5" />
@@ -72,7 +76,23 @@ const Projects = () => {
                 </DialogTrigger>
                 <DialogContent className="max-w-2xl">
                   <DialogHeader>
-                    <DialogTitle>{project.title}</DialogTitle>
+                    <DialogTitle className="flex items-center justify-between">
+                      {project.title}
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="gap-2"
+                        asChild
+                      >
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Github className="h-4 w-4" /> View on GitHub
+                        </a>
+                      </Button>
+                    </DialogTitle>
                   </DialogHeader>
                   <div className="mt-4 space-y-4">
                     <p className="text-muted-foreground">
