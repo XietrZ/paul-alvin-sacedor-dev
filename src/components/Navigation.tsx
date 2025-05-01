@@ -16,8 +16,12 @@ const Navigation = () => {
   }, []);
 
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    element?.scrollIntoView({ behavior: "smooth" });
+    if (id === "top") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      const element = document.getElementById(id);
+      element?.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   // Navigation sections
@@ -38,7 +42,12 @@ const Navigation = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <span className="text-xl font-bold">Portfolio</span>
+          <button 
+            onClick={() => scrollToSection("top")} 
+            className="text-xl font-bold cursor-pointer hover:text-primary transition-colors"
+          >
+            Portfolio
+          </button>
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-4">
@@ -65,6 +74,19 @@ const Navigation = () => {
               </SheetTrigger>
               <SheetContent side="right" className="w-[240px] sm:w-[300px]">
                 <div className="flex flex-col space-y-4 py-4">
+                  <Button
+                    variant="ghost"
+                    onClick={() => {
+                      scrollToSection("top");
+                      // Close the sheet by simulating Escape key press
+                      document.dispatchEvent(
+                        new KeyboardEvent("keydown", { key: "Escape" })
+                      );
+                    }}
+                    className="justify-start font-bold"
+                  >
+                    Portfolio
+                  </Button>
                   {navSections.map((section) => (
                     <Button
                       key={section}
