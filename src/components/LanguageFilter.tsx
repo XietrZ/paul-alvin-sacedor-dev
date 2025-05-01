@@ -11,6 +11,9 @@ type LanguageFilterProps = {
 const LanguageFilter = ({ languages, onFilterChange }: LanguageFilterProps) => {
   const [selectedLanguages, setSelectedLanguages] = useState<string[]>([]);
 
+  // Sort languages alphabetically
+  const sortedLanguages = [...languages].sort((a, b) => a.localeCompare(b));
+
   const handleValueChange = (value: string[]) => {
     setSelectedLanguages(value);
     onFilterChange(value);
@@ -31,7 +34,7 @@ const LanguageFilter = ({ languages, onFilterChange }: LanguageFilterProps) => {
         )}
       </div>
       <ToggleGroup type="multiple" value={selectedLanguages} onValueChange={handleValueChange}>
-        {languages.map((lang) => (
+        {sortedLanguages.map((lang) => (
           <ToggleGroupItem key={lang} value={lang} aria-label={`Filter by ${lang}`}>
             {lang}
           </ToggleGroupItem>
