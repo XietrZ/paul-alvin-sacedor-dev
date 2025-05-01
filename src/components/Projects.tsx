@@ -62,20 +62,23 @@ const Projects = () => {
           onFilterChange={setSelectedLanguages} 
         />
         
-        <ScrollArea className="h-[400px]">
+        <ScrollArea className="h-[500px] md:h-[600px]">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 pr-4">
             {filteredProjects.length > 0 ? (
               filteredProjects.map((project) => (
                 <Dialog key={project.title}>
                   <DialogTrigger asChild>
                     <Card className="hover:shadow-lg transition-shadow overflow-hidden cursor-pointer">
-                      <AspectRatio ratio={16 / 9}>
-                        <img
-                          src={project.image}
-                          alt={project.title}
-                          className="object-cover w-full h-full rounded-t-lg"
-                        />
-                      </AspectRatio>
+                      <div className="relative h-48">
+                        <AspectRatio ratio={16 / 9} className="bg-muted">
+                          <img
+                            src={project.image}
+                            alt={project.title}
+                            className="object-cover w-full h-full rounded-t-lg"
+                            loading="lazy"
+                          />
+                        </AspectRatio>
+                      </div>
                       <CardHeader>
                         <CardTitle className="flex justify-between items-start">
                           {project.title}
@@ -105,7 +108,7 @@ const Projects = () => {
                       </CardContent>
                     </Card>
                   </DialogTrigger>
-                  <DialogContent className="max-w-2xl">
+                  <DialogContent className="max-w-3xl">
                     <DialogHeader>
                       <DialogTitle className="flex items-center justify-between">
                         {project.title}
@@ -129,20 +132,29 @@ const Projects = () => {
                       <p className="text-muted-foreground">
                         {project.longDescription}
                       </p>
-                      <Carousel className="w-full">
+                      <Carousel className="w-full max-h-[500px]">
                         <CarouselContent>
                           {project.screenshots.map((screenshot, index) => (
-                            <CarouselItem key={index}>
-                              <img
-                                src={screenshot}
-                                alt={`${project.title} screenshot ${index + 1}`}
-                                className="rounded-lg w-full"
-                              />
+                            <CarouselItem key={index} className="flex justify-center">
+                              <div className="relative w-full max-h-[400px] overflow-hidden rounded-lg">
+                                <AspectRatio ratio={16 / 9}>
+                                  <img
+                                    src={screenshot}
+                                    alt={`${project.title} screenshot ${index + 1}`}
+                                    className="object-contain w-full h-full"
+                                    loading="lazy"
+                                  />
+                                </AspectRatio>
+                              </div>
                             </CarouselItem>
                           ))}
                         </CarouselContent>
-                        <CarouselPrevious />
-                        <CarouselNext />
+                        <div className="absolute inset-y-1/2 left-1 -translate-y-1/2 z-10">
+                          <CarouselPrevious className="bg-background/80" />
+                        </div>
+                        <div className="absolute inset-y-1/2 right-1 -translate-y-1/2 z-10">
+                          <CarouselNext className="bg-background/80" />
+                        </div>
                       </Carousel>
                       <div className="flex flex-wrap gap-2">
                         {project.tech.map((tech) => (
