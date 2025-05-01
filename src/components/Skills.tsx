@@ -15,6 +15,7 @@ const Skills = () => {
         "Python",
         "MySQL",
         "MySQLite",
+        "AsyncStorage",
         "Firebase",
         "HTML",
       ],
