@@ -47,7 +47,7 @@ const Hero = () => {
           </h1>
           <div className="space-y-3 lg:space-y-4">
             <p className="text-xl sm:text-2xl text-primary/80">
-              Full Stack Developer
+              Software Engineer
             </p>
             <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
               Crafting robust and scalable applications with modern
