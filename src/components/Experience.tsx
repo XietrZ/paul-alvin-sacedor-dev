@@ -40,7 +40,7 @@ const Experience = () => {
         />
         
         <ScrollArea className="h-[600px]">
-          <div className="space-y-6 pr-4">
+          <div className="space-y-6">
             {filteredExperiences.length > 0 ? (
               filteredExperiences.map((exp) => (
                 <Card

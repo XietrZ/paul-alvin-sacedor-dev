@@ -35,12 +35,12 @@ const LanguageFilter = ({ languages, onFilterChange }: LanguageFilterProps) => {
           </Badge>
         )}
       </div>
-      <div className="overflow-x-auto pb-2">
+      <div className="pb-2">
         <ToggleGroup 
           type="multiple" 
           value={selectedLanguages} 
           onValueChange={handleValueChange}
-          className={`flex-wrap gap-y-2 ${isMobile ? 'w-max' : ''}`}
+          className="flex flex-wrap gap-2"
         >
           {sortedLanguages.map((lang) => (
             <ToggleGroupItem 

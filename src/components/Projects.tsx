@@ -62,22 +62,12 @@ const Projects = () => {
         />
 
         <ScrollArea className="h-[500px] md:h-[600px]">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 pr-4">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProjects.length > 0 ? (
               filteredProjects.map((project) => (
                 <Dialog key={project.title}>
                   <DialogTrigger asChild>
                     <Card className="hover:shadow-lg transition-shadow overflow-hidden cursor-pointer">
-                      {/* <div className="relative h-48">
-                        <AspectRatio ratio={16 / 9} className="bg-muted">
-                          <img
-                            src={project.image}
-                            alt={project.title}
-                            className="object-cover w-full h-full rounded-t-lg"
-                            loading="lazy"
-                          />
-                        </AspectRatio>
-                      </div> */}
                       <div className="relative w-full max-h-[400px] overflow-hidden rounded-lg">
                         <AspectRatio ratio={16 / 9}>
                           <img
