@@ -81,15 +81,17 @@ const Projects = () => {
                       <CardHeader>
                         <CardTitle className="flex justify-between items-start">
                           {project.title}
-                          <a
-                            href={project.github}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-primary hover:text-primary/80 transition-colors"
-                            onClick={(e) => e.stopPropagation()}
-                          >
-                            <Github className="h-5 w-5" />
-                          </a>
+                          {project.github && (
+                            <a
+                              href={project.github}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-primary hover:text-primary/80 transition-colors"
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              <Github className="h-5 w-5" />
+                            </a>
+                          )}
                         </CardTitle>
                         <CardDescription>{project.description}</CardDescription>
                       </CardHeader>
@@ -121,13 +123,15 @@ const Projects = () => {
                           className="gap-2"
                           asChild
                         >
-                          <a
-                            href={project.github}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <Github className="h-4 w-4" /> View on GitHub
-                          </a>
+                          {project.github && (
+                            <a
+                              href={project.github}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <Github className="h-4 w-4" /> View on GitHub
+                            </a>
+                          )}
                         </Button>
                       </DialogTitle>
                     </DialogHeader>
