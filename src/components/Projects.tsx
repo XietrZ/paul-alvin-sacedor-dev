@@ -1,4 +1,3 @@
-
 import { useState, useMemo } from "react";
 import {
   Card,
@@ -31,7 +30,7 @@ import LanguageFilter from "./LanguageFilter";
 
 const Projects = () => {
   const [selectedLanguages, setSelectedLanguages] = useState<string[]>([]);
-  
+
   // Get all unique languages from projects data
   const allLanguages = useMemo(() => {
     const languagesSet = new Set<string>();
@@ -40,13 +39,13 @@ const Projects = () => {
     });
     return Array.from(languagesSet);
   }, []);
-  
+
   // Filter projects based on selected languages
   const filteredProjects = useMemo(() => {
     if (selectedLanguages.length === 0) return projectConstants;
-    
-    return projectConstants.filter((project) => 
-      project.tech.some(tech => selectedLanguages.includes(tech))
+
+    return projectConstants.filter((project) =>
+      project.tech.some((tech) => selectedLanguages.includes(tech))
     );
   }, [selectedLanguages]);
 
@@ -56,12 +55,12 @@ const Projects = () => {
         <h2 className="text-3xl font-bold text-center mb-12">
           Featured Projects
         </h2>
-        
-        <LanguageFilter 
-          languages={allLanguages} 
-          onFilterChange={setSelectedLanguages} 
+
+        <LanguageFilter
+          languages={allLanguages}
+          onFilterChange={setSelectedLanguages}
         />
-        
+
         <ScrollArea className="h-[500px] md:h-[600px]">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 pr-4">
             {filteredProjects.length > 0 ? (
@@ -69,12 +68,22 @@ const Projects = () => {
                 <Dialog key={project.title}>
                   <DialogTrigger asChild>
                     <Card className="hover:shadow-lg transition-shadow overflow-hidden cursor-pointer">
-                      <div className="relative h-48">
+                      {/* <div className="relative h-48">
                         <AspectRatio ratio={16 / 9} className="bg-muted">
                           <img
                             src={project.image}
                             alt={project.title}
                             className="object-cover w-full h-full rounded-t-lg"
+                            loading="lazy"
+                          />
+                        </AspectRatio>
+                      </div> */}
+                      <div className="relative w-full max-h-[400px] overflow-hidden rounded-lg">
+                        <AspectRatio ratio={16 / 9}>
+                          <img
+                            src={project.image}
+                            alt={project.title}
+                            className="object-contain w-full h-full"
                             loading="lazy"
                           />
                         </AspectRatio>
@@ -97,9 +106,13 @@ const Projects = () => {
                       <CardContent>
                         <div className="flex flex-wrap gap-2">
                           {project.tech.map((tech) => (
-                            <Badge 
-                              key={tech} 
-                              variant={selectedLanguages.includes(tech) ? "default" : "outline"}
+                            <Badge
+                              key={tech}
+                              variant={
+                                selectedLanguages.includes(tech)
+                                  ? "default"
+                                  : "outline"
+                              }
                             >
                               {tech}
                             </Badge>
@@ -135,12 +148,17 @@ const Projects = () => {
                       <Carousel className="w-full max-h-[500px]">
                         <CarouselContent>
                           {project.screenshots.map((screenshot, index) => (
-                            <CarouselItem key={index} className="flex justify-center">
+                            <CarouselItem
+                              key={index}
+                              className="flex justify-center"
+                            >
                               <div className="relative w-full max-h-[400px] overflow-hidden rounded-lg">
                                 <AspectRatio ratio={16 / 9}>
                                   <img
                                     src={screenshot}
-                                    alt={`${project.title} screenshot ${index + 1}`}
+                                    alt={`${project.title} screenshot ${
+                                      index + 1
+                                    }`}
                                     className="object-contain w-full h-full"
                                     loading="lazy"
                                   />
@@ -158,9 +176,13 @@ const Projects = () => {
                       </Carousel>
                       <div className="flex flex-wrap gap-2">
                         {project.tech.map((tech) => (
-                          <Badge 
+                          <Badge
                             key={tech}
-                            variant={selectedLanguages.includes(tech) ? "default" : "outline"}
+                            variant={
+                              selectedLanguages.includes(tech)
+                                ? "default"
+                                : "outline"
+                            }
                           >
                             {tech}
                           </Badge>
@@ -172,7 +194,9 @@ const Projects = () => {
               ))
             ) : (
               <div className="col-span-full text-center py-8">
-                <p className="text-muted-foreground">No projects match the selected filters.</p>
+                <p className="text-muted-foreground">
+                  No projects match the selected filters.
+                </p>
               </div>
             )}
           </div>
