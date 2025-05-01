@@ -1,5 +1,12 @@
-
-import { Facebook, Github, Linkedin, Mail, Phone, ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  Facebook,
+  Github,
+  Linkedin,
+  Mail,
+  Phone,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { useState, useEffect } from "react";
@@ -15,6 +22,8 @@ const Hero = () => {
   const [animate, setAnimate] = useState(false);
   const profileImages = [
     "/lovable-uploads/profile_1.PNG",
+    "/lovable-uploads/profile_2.jpg",
+    "/lovable-uploads/profile_3.jpg",
     // Add more profile image paths as needed
   ];
 
