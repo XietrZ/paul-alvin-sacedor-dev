@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { Badge } from "@/components/ui/badge";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 type LanguageFilterProps = {
   languages: string[];
@@ -10,6 +11,7 @@ type LanguageFilterProps = {
 
 const LanguageFilter = ({ languages, onFilterChange }: LanguageFilterProps) => {
   const [selectedLanguages, setSelectedLanguages] = useState<string[]>([]);
+  const isMobile = useIsMobile();
 
   // Sort languages alphabetically
   const sortedLanguages = [...languages].sort((a, b) => a.localeCompare(b));
@@ -33,13 +35,25 @@ const LanguageFilter = ({ languages, onFilterChange }: LanguageFilterProps) => {
           </Badge>
         )}
       </div>
-      <ToggleGroup type="multiple" value={selectedLanguages} onValueChange={handleValueChange}>
-        {sortedLanguages.map((lang) => (
-          <ToggleGroupItem key={lang} value={lang} aria-label={`Filter by ${lang}`}>
-            {lang}
-          </ToggleGroupItem>
-        ))}
-      </ToggleGroup>
+      <div className="overflow-x-auto pb-2">
+        <ToggleGroup 
+          type="multiple" 
+          value={selectedLanguages} 
+          onValueChange={handleValueChange}
+          className={`flex-wrap gap-y-2 ${isMobile ? 'w-max' : ''}`}
+        >
+          {sortedLanguages.map((lang) => (
+            <ToggleGroupItem 
+              key={lang} 
+              value={lang} 
+              aria-label={`Filter by ${lang}`}
+              className="text-xs md:text-sm"
+            >
+              {lang}
+            </ToggleGroupItem>
+          ))}
+        </ToggleGroup>
+      </div>
     </div>
   );
 };
