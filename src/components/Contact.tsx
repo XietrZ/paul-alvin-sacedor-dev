@@ -18,12 +18,12 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     const formData = new FormData(e.currentTarget);
     const name = formData.get("name") as string;
     const email = formData.get("email") as string;
     const message = formData.get("message") as string;
-    
+
     try {
       // Create a simple email structure
       const emailContent = `
@@ -31,14 +31,14 @@ const Contact = () => {
         Email: ${email}
         Message: ${message}
       `;
-      
+
       // Using mailto as a fallback method for direct email
       const mailtoLink = `mailto:pasacedor@gmail.com?subject=${encodeURIComponent(
         `${name} - Contact Form`
       )}&body=${encodeURIComponent(emailContent)}`;
-      
+
       window.location.href = mailtoLink;
-      
+
       // Clear the form
       e.currentTarget.reset();
       toast.success("Message sent successfully!");
@@ -55,35 +55,38 @@ const Contact = () => {
       icon: <Phone className="h-5 w-5" />,
       label: "Cell",
       value: "09777396781",
-      href: "tel:09777396781"
+      href: "tel:09777396781",
     },
     {
       icon: <Mail className="h-5 w-5" />,
       label: "Email",
       value: "pasacedor@gmail.com",
-      href: "mailto:pasacedor@gmail.com"
+      href: "mailto:pasacedor@gmail.com",
     },
     {
       icon: <Facebook className="h-5 w-5" />,
       label: "Facebook",
       value: "paul.sacedor",
-      href: "https://www.facebook.com/paul.sacedor/"
+      href: "https://www.facebook.com/paul.sacedor/",
     },
     {
       icon: <Linkedin className="h-5 w-5" />,
       label: "LinkedIn",
       value: "paul-alvin-sacedor",
-      href: "https://www.linkedin.com/in/paul-alvin-sacedor/"
-    }
+      href: "https://www.linkedin.com/in/paul-alvin-sacedor/",
+    },
   ];
 
   return (
-    <section id="contact" className="section-padding bg-gradient-to-b from-background to-secondary/30">
+    <section
+      id="contact"
+      className="section-padding bg-gradient-to-b from-background to-secondary/30"
+    >
       <div className="max-w-4xl mx-auto">
         <h2 className="text-3xl font-bold text-center mb-12 animate-fade-in bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
           Get In Touch
         </h2>
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-1 gap-8">
           <Card className="animate-fade-in hover:shadow-lg transition-shadow">
             <CardHeader>
               <CardTitle>Contact Information</CardTitle>
@@ -100,17 +103,21 @@ const Contact = () => {
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 p-3 rounded-lg hover:bg-secondary/50 transition-colors"
                 >
-                  <div className="bg-primary/10 p-2 rounded-full">{contact.icon}</div>
+                  <div className="bg-primary/10 p-2 rounded-full">
+                    {contact.icon}
+                  </div>
                   <div>
                     <div className="font-medium">{contact.label}</div>
-                    <div className="text-sm text-muted-foreground">{contact.value}</div>
+                    <div className="text-sm text-muted-foreground">
+                      {contact.value}
+                    </div>
                   </div>
                 </a>
               ))}
             </CardContent>
           </Card>
 
-          <Card className="animate-fade-in hover:shadow-lg transition-shadow">
+          {/* <Card className="animate-fade-in hover:shadow-lg transition-shadow">
             <CardHeader>
               <CardTitle>Send a Message</CardTitle>
               <CardDescription>
@@ -119,10 +126,10 @@ const Contact = () => {
             </CardHeader>
             <CardContent>
               <form className="space-y-4" onSubmit={handleSubmit}>
-                <Input 
-                  placeholder="Your Name" 
-                  name="name" 
-                  required 
+                <Input
+                  placeholder="Your Name"
+                  name="name"
+                  required
                   className="transition-all focus:scale-[1.02]"
                 />
                 <Input
@@ -138,16 +145,16 @@ const Contact = () => {
                   className="min-h-[150px] transition-all focus:scale-[1.02]"
                   required
                 />
-                <Button 
-                  className="w-full hover:scale-[1.02] transition-transform" 
-                  type="submit" 
+                <Button
+                  className="w-full hover:scale-[1.02] transition-transform"
+                  type="submit"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
               </form>
             </CardContent>
-          </Card>
+          </Card> */}
         </div>
       </div>
     </section>
